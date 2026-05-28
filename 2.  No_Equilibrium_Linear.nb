@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    119212,       2379]
-NotebookOptionsPosition[    117630,       2344]
-NotebookOutlinePosition[    118038,       2360]
-CellTagsIndexPosition[    117995,       2357]
+NotebookDataLength[    121509,       2432]
+NotebookOptionsPosition[    119577,       2390]
+NotebookOutlinePosition[    119983,       2406]
+CellTagsIndexPosition[    119940,       2403]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -50,12 +50,12 @@ Cell[" ", "Text",
 Cell[CellGroupData[{
 
 Cell["\<\
-Stability analyses to search for equilibrium value of cooperation when \
+Stability analyses to search for singular value of cooperation when \
 cooperation gives linear returns\
 \>", "Title",
  CellChangeTimes->{{3.9805015954313297`*^9, 3.9805015954313297`*^9}, {
-  3.9805016280780563`*^9, 
-  3.9805016712369766`*^9}},ExpressionUUID->"8424eb25-af0c-9e41-be6b-\
+   3.9805016280780563`*^9, 3.9805016712369766`*^9}, 
+   3.988947756306591*^9},ExpressionUUID->"8424eb25-af0c-9e41-be6b-\
 7903e0793bc2"],
 
 Cell[TextData[{
@@ -66,19 +66,42 @@ Cell[TextData[{
     RowBox[{"(", 
      RowBox[{"z", ",", 
       SubscriptBox["d", "0"], ",", "...", ",", 
-      SubscriptBox["d", "N"]}]}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+      SubscriptBox["d", "N"]}]}]}], TraditionalForm]],ExpressionUUID->
   "53898ff9-a236-9c40-82b9-498fd342209d"],
  ") where directional selection is null on all traits. To do so, we use the \
 Mathematica function \[OpenCurlyDoubleQuote]FindRoot\[CloseCurlyDoubleQuote]. \
-This corresponds to the procedure described in section 3.2 of the main text \
-and section D.3.1 of the Appendix"
+We search for singular strategies for 5000  sets of random values of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["c", "d"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3784b9dd-3ebd-f140-9c6b-548f3861634b"],
+ " and ",
+ StyleBox["C. ",
+  FontSlant->"Italic"],
+ "If a singular value is found, the loop breaks and the corresponding set of \
+parameters is printed. If the loop does not break, no singular strategy has \
+been found for any of the set of parameters tested. \nTo save computational \
+time, this process can be iterated for a lower number of sets of parameters \
+by changing the value of the parameter \[OpenCurlyDoubleQuote]it\
+\[CloseCurlyDoubleQuote].",
+ "\nThis corresponds to the procedure described in section 3.2 of the main \
+text and section D.3.1 of the Appendix."
 }], "Text",
  CellChangeTimes->{{3.968833285311166*^9, 3.968833296963772*^9}, {
   3.980501689034588*^9, 3.9805018076367474`*^9}, {3.9805018744431095`*^9, 
-  3.980501889340559*^9}, {3.9805019999171333`*^9, 
-  3.9805020282591286`*^9}},ExpressionUUID->"6e027ee9-084c-4c02-a312-\
+  3.980501889340559*^9}, {3.9805019999171333`*^9, 3.9805020282591286`*^9}, {
+  3.988947577813305*^9, 3.9889477355134487`*^9}, {3.9889477673738823`*^9, 
+  3.988947825485161*^9}, {3.9889478797399673`*^9, 
+  3.988947914546673*^9}},ExpressionUUID->"6e027ee9-084c-4c02-a312-\
 1291f1cc0e4c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"it", "=", "5000"}], ";"}]], "Input",
+ CellChangeTimes->{{3.988947993658983*^9, 
+  3.988948023153099*^9}},ExpressionUUID->"59798efa-7592-5f45-9f24-\
+2cf4be6978f5"],
 
 Cell[CellGroupData[{
 
@@ -559,12 +582,12 @@ Cell[BoxData[
        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{
-        RowBox[{"i", "==", "5000"}], ",", 
+        RowBox[{"i", "==", "it"}], ",", 
         RowBox[{
-        "Print", "[", "\"\<No equilibrium strategy was found\>\"", "]"}]}], 
+        "Print", "[", "\"\<No singular strategy was found\>\"", "]"}]}], 
        "]"}]}], "\[IndentingNewLine]", ",", 
      RowBox[{"{", 
-      RowBox[{"i", ",", "1", ",", "5000"}], "}"}]}], "\[IndentingNewLine]", 
+      RowBox[{"i", ",", "1", ",", "it"}], "}"}]}], "\[IndentingNewLine]", 
     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.7477373093111963`*^9, 3.747737317219779*^9}, 
    3.747739676100848*^9, {3.74773971807545*^9, 3.7477397182601633`*^9}, {
@@ -829,13 +852,16 @@ Cell[BoxData[
    3.9684809764146686`*^9}, {3.9684813944392586`*^9, 3.968481402401019*^9}, {
    3.968482070634033*^9, 3.9684820711867685`*^9}, {3.9685675830722055`*^9, 
    3.9685676018938284`*^9}, {3.9688332528461637`*^9, 
-   3.9688332585879893`*^9}, {3.9688333050398874`*^9, 3.9688333081446943`*^9}},
- 
- CellLabel->"In[5]:=",ExpressionUUID->"505ce2d3-33fd-4b73-9ca1-4eaa971dd074"],
+   3.9688332585879893`*^9}, {3.9688333050398874`*^9, 
+   3.9688333081446943`*^9}, {3.9889478304857044`*^9, 
+   3.9889478429496803`*^9}, {3.988947919170328*^9, 3.9889479638048515`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"505ce2d3-33fd-4b73-9ca1-4eaa971dd074"],
 
-Cell[BoxData["$Aborted"], "Output",
- CellChangeTimes->{3.968835674261699*^9},
- CellLabel->"Out[5]=",ExpressionUUID->"3a5c1714-3f0e-46c0-ae3a-1b52ab1123e7"]
+Cell[BoxData["\<\"No singular strategy was found\"\>"], "Print",
+ CellChangeTimes->{{3.9889479901444855`*^9, 3.988948009143837*^9}},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"63d8cfd1-82b8-9241-a590-1f15da73e330"]
 }, Open  ]]
 }, Open  ]],
 
@@ -845,6 +871,8 @@ Cell["b = 1", "Subsection",
  CellChangeTimes->{{3.968833285311166*^9, 
   3.9688333237257843`*^9}},ExpressionUUID->"648b835c-cbfe-47d7-abcb-\
 96baa1ae1563"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -1315,12 +1343,12 @@ Cell[BoxData[
        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{
-        RowBox[{"i", "==", "5000"}], ",", 
+        RowBox[{"i", "==", "it"}], ",", 
         RowBox[{
-        "Print", "[", "\"\<No equilibrium strategy was found\>\"", "]"}]}], 
+        "Print", "[", "\"\<No singular strategy was found\>\"", "]"}]}], 
        "]"}]}], "\[IndentingNewLine]", ",", 
      RowBox[{"{", 
-      RowBox[{"i", ",", "1", ",", "5000"}], "}"}]}], "\[IndentingNewLine]", 
+      RowBox[{"i", ",", "1", ",", "it"}], "}"}]}], "\[IndentingNewLine]", 
     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.7477373093111963`*^9, 3.747737317219779*^9}, 
    3.747739676100848*^9, {3.74773971807545*^9, 3.7477397182601633`*^9}, {
@@ -1585,8 +1613,16 @@ Cell[BoxData[
    3.9684809764146686`*^9}, {3.9684813944392586`*^9, 3.968481402401019*^9}, {
    3.968482070634033*^9, 3.9684820711867685`*^9}, {3.9685675830722055`*^9, 
    3.9685676018938284`*^9}, {3.9688332528461637`*^9, 
-   3.9688332585879893`*^9}},ExpressionUUID->"4d4be45e-0cba-43e0-8fe0-\
-2234e9ba610b"]
+   3.9688332585879893`*^9}, {3.9889478669769382`*^9, 
+   3.9889478735943336`*^9}, {3.988947974632742*^9, 3.9889479749348316`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"4d4be45e-0cba-43e0-8fe0-2234e9ba610b"],
+
+Cell[BoxData["\<\"No singular strategy was found\"\>"], "Print",
+ CellChangeTimes->{3.988948014530987*^9},
+ CellLabel->
+  "During evaluation of \
+In[32]:=",ExpressionUUID->"02627c38-71ce-b546-b498-6713f6bd8d29"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1596,6 +1632,8 @@ Cell["b = 1.25", "Subsection",
   3.9805019549680614`*^9, 
   3.980501955316826*^9}},ExpressionUUID->"4fbe72ed-eb89-3e4e-8e50-\
 ce801a0c070b"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -2066,12 +2104,12 @@ Cell[BoxData[
        "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{
-        RowBox[{"i", "==", "5000"}], ",", 
+        RowBox[{"i", "==", "it"}], ",", 
         RowBox[{
-        "Print", "[", "\"\<No equilibrium strategy was found\>\"", "]"}]}], 
+        "Print", "[", "\"\<No singular strategy was found\>\"", "]"}]}], 
        "]"}]}], "\[IndentingNewLine]", ",", 
      RowBox[{"{", 
-      RowBox[{"i", ",", "1", ",", "5000"}], "}"}]}], "\[IndentingNewLine]", 
+      RowBox[{"i", ",", "1", ",", "it"}], "}"}]}], "\[IndentingNewLine]", 
     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
  CellChangeTimes->{{3.7477373093111963`*^9, 3.747737317219779*^9}, 
    3.747739676100848*^9, {3.74773971807545*^9, 3.7477397182601633`*^9}, {
@@ -2336,14 +2374,22 @@ Cell[BoxData[
    3.9684809764146686`*^9}, {3.9684813944392586`*^9, 3.968481402401019*^9}, {
    3.968482070634033*^9, 3.9684820711867685`*^9}, {3.9685675830722055`*^9, 
    3.9685676018938284`*^9}, {3.9688332528461637`*^9, 
-   3.9688332585879893`*^9}, {3.980501957581003*^9, 
-   3.980501957963417*^9}},ExpressionUUID->"2d94dc1a-081f-4674-b54d-\
-0f9ed98affdc"]
+   3.9688332585879893`*^9}, {3.980501957581003*^9, 3.980501957963417*^9}, {
+   3.9889478528422318`*^9, 3.988947861901844*^9}, {3.9889479785296116`*^9, 
+   3.9889479786828556`*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"2d94dc1a-081f-4674-b54d-0f9ed98affdc"],
+
+Cell[BoxData["\<\"No singular strategy was found\"\>"], "Print",
+ CellChangeTimes->{3.988948020199587*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"2f30559b-658c-414f-aa51-cb973ca4e538"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{831, 571.5},
-WindowMargins->{{25.5, Automatic}, {64.5, Automatic}},
+WindowSize->{831, 566.25},
+WindowMargins->{{25.5, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (December 26, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"d1b5d17a-3b8f-48ff-874a-63c59f1b26be"
@@ -2363,22 +2409,29 @@ Cell[558, 20, 147, 3, 47, "Input",ExpressionUUID->"1020f60f-e014-4837-9e0c-f930f
 Cell[708, 25, 486, 10, 47, "Input",ExpressionUUID->"ee20d07f-3d24-4985-8902-17a2d3790ed7"],
 Cell[1197, 37, 329, 10, 10, "Text",ExpressionUUID->"07cbda3c-164a-4a62-95ee-e3b4d0df0bf6"],
 Cell[CellGroupData[{
-Cell[1551, 51, 313, 7, 217, "Title",ExpressionUUID->"8424eb25-af0c-9e41-be6b-7903e0793bc2"],
-Cell[1867, 60, 933, 20, 77, "Text",ExpressionUUID->"6e027ee9-084c-4c02-a312-1291f1cc0e4c"],
+Cell[1551, 51, 334, 7, 217, "Title",ExpressionUUID->"8424eb25-af0c-9e41-be6b-7903e0793bc2"],
+Cell[1888, 60, 1749, 36, 186, "Text",ExpressionUUID->"6e027ee9-084c-4c02-a312-1291f1cc0e4c"],
+Cell[3640, 98, 197, 5, 28, "Input",ExpressionUUID->"59798efa-7592-5f45-9f24-2cf4be6978f5"],
 Cell[CellGroupData[{
-Cell[2825, 84, 261, 4, 53, "Subsection",ExpressionUUID->"be98636f-5204-4bdf-87c1-c0f6a8ab2bee"],
+Cell[3862, 107, 261, 4, 53, "Subsection",ExpressionUUID->"be98636f-5204-4bdf-87c1-c0f6a8ab2bee"],
 Cell[CellGroupData[{
-Cell[3111, 92, 37992, 741, 1384, "Input",ExpressionUUID->"505ce2d3-33fd-4b73-9ca1-4eaa971dd074"],
-Cell[41106, 835, 155, 2, 32, "Output",ExpressionUUID->"3a5c1714-3f0e-46c0-ae3a-1b52ab1123e7"]
+Cell[4148, 115, 38090, 742, 1384, "Input",ExpressionUUID->"505ce2d3-33fd-4b73-9ca1-4eaa971dd074"],
+Cell[42241, 859, 237, 4, 22, "Print",ExpressionUUID->"63d8cfd1-82b8-9241-a590-1f15da73e330"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[41310, 843, 155, 3, 53, "Subsection",ExpressionUUID->"648b835c-cbfe-47d7-abcb-96baa1ae1563"],
-Cell[41468, 848, 37916, 740, 1384, "Input",ExpressionUUID->"4d4be45e-0cba-43e0-8fe0-2234e9ba610b"]
+Cell[42527, 869, 155, 3, 53, "Subsection",ExpressionUUID->"648b835c-cbfe-47d7-abcb-96baa1ae1563"],
+Cell[CellGroupData[{
+Cell[42707, 876, 38033, 741, 1384, "Input",ExpressionUUID->"4d4be45e-0cba-43e0-8fe0-2234e9ba610b"],
+Cell[80743, 1619, 211, 4, 22, "Print",ExpressionUUID->"02627c38-71ce-b546-b498-6713f6bd8d29"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79421, 1593, 209, 4, 53, "Subsection",ExpressionUUID->"4fbe72ed-eb89-3e4e-8e50-ce801a0c070b"],
-Cell[79633, 1599, 37969, 741, 1384, "Input",ExpressionUUID->"2d94dc1a-081f-4674-b54d-0f9ed98affdc"]
+Cell[81003, 1629, 209, 4, 53, "Subsection",ExpressionUUID->"4fbe72ed-eb89-3e4e-8e50-ce801a0c070b"],
+Cell[CellGroupData[{
+Cell[81237, 1637, 38086, 742, 1384, "Input",ExpressionUUID->"2d94dc1a-081f-4674-b54d-0f9ed98affdc"],
+Cell[119326, 2381, 211, 4, 22, "Print",ExpressionUUID->"2f30559b-658c-414f-aa51-cb973ca4e538"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
